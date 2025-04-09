@@ -1,2 +1,1 @@
-# miniMessageBoard
 message board
