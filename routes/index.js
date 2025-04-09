@@ -1,7 +1,11 @@
 const express = require("express");
-const indexController = require("../controllers/indexController");
+const messageController = require("../controllers/messageController");
 const router = express.Router();
 
-router.get("/", indexController.home);
+// get homepage
+router.get("/", messageController.index);
+
+// get new message form
+router.get("/new", messageController.newMessageForm);
 
 module.exports = router;

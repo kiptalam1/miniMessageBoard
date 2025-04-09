@@ -11,6 +11,4 @@ const messages = [
 	},
 ];
 
-exports.home = (req, res) => {
-	res.render("index", { title: "Mini Message Board", messages: messages });
-};
+module.exports = messages;

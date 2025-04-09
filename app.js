@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const routes = require("./routes/index");
+const indexRouter = require("./routes/index");
 const PORT = process.env.PORT;
 
 const app = express();
@@ -15,7 +15,7 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
 // routes
-app.use("/", routes);
+app.use("/", indexRouter);
 
 app.listen(PORT, () => {
 	console.log(`Server running at http://localhost:${PORT}`);
