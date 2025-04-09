@@ -15,6 +15,7 @@
 				<strong><%= message.user %>:</strong>
 				<%= message.text %>
 				<small>(<%= message.added.toLocaleString() %>)</small>
+				<a href="/<%= message.id %>"><button>Open</button></a>
 			</li>
 			<% }); %>
 		</ul>
