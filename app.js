@@ -1,10 +1,21 @@
 const express = require("express");
+const path = require("path");
+const routes = require("./routes/index");
 const PORT = process.env.PORT;
+
 const app = express();
 
-app.get("/", (req, res) => {
-	res.send("<h1>Hello world</h1>");
-});
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+// middleware
+app.use(express.urlencoded({ extended: true }));
+const assetsPath = path.join(__dirname, "public");
+app.use(express.static(assetsPath));
+
+// routes
+app.use("/", routes);
 
 app.listen(PORT, () => {
 	console.log(`Server running at http://localhost:${PORT}`);
