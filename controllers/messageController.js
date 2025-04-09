@@ -11,7 +11,6 @@ exports.handleNewMessage = (req, res) => {
 	const { user, text } = req.body;
 
 	messages.push({
-		id: messages.length + 1, 
 		text: text,
 		user: user,
 		added: new Date(),
@@ -21,7 +20,7 @@ exports.handleNewMessage = (req, res) => {
 
 exports.viewIndividualMessage = (req,res) => {
 	const { id } = req.params;
-	const message = messages.find((msg) => msg.id === id)
+	const message = messages[parseInt(id)]
 	if (!message) {
 		return res.status(404).send("Message not found");
 	}

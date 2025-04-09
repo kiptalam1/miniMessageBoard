@@ -1,16 +1,18 @@
 const messages = [
 	{
-		id: "1",
-		text: "Hi there!",
-		user: "Amando",
+		text: "Everything come back around full circle",
+		user: "Call",
 		added: new Date(),
 	},
 	{
-		id: "2",
-		text: "Hello World!",
-		user: "Charles",
+		text: "Mtoto ni mfresh na ni tourist...",
+		user: "Don",
+		added: new Date(),
+	},
+	{
+		text: "Beat your as* and hide the Bible if God watching",
+		user: "KaneDraeke",
 		added: new Date(),
 	},
 ];
-
 module.exports = messages;
