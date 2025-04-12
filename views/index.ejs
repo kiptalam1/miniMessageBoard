@@ -11,12 +11,12 @@
 		<a class="new-message" href="/new">Add New Message</a>
 
 		<ul id="message-list">
-			<% messages.forEach((message, index) => { %>
+			<% messages.forEach((message) => { %>
 			<li>
 				<strong><%= message.username %>:</strong>
 				<%= message.text %>
 				<small>(<%= message.added.toLocaleString() %>)</small>
-				<a href="/<%= index %>"><button>Open</button></a>
+				<a href="/<%=message.id %>"><button>Open</button></a>
 			</li>
 			<hr />
 			<% }); %>
