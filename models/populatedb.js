@@ -1,7 +1,7 @@
 // script
 const { Client } = require("pg");
 require("dotenv").config();
-const useSSL = process.env.DATABASE_URL?.includes("render.com");
+const useSSL = process.env.DATABASE_URL?.includes("neon.tech");
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
@@ -22,6 +22,7 @@ ON CONFLICT (username, text) DO NOTHING;
 
 async function main() {
 	console.log("Seeding...");
+    console.log("🌱 Seed DB URL:", process.env.DATABASE_URL); 
 	const client = new Client({
 		connectionString: process.env.DATABASE_URL,
 		ssl: useSSL
@@ -33,8 +34,9 @@ async function main() {
 
 	try {
 		await client.connect();
+        console.log("✅ Connected to DB (Seeding)");
 		await client.query(SQL);
-		console.log("done!");
+		console.log("done seeding!");
 	} catch (err) {
 		console.error("Error seeding database:", err);
 	} finally {
