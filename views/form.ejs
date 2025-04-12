@@ -10,7 +10,7 @@
 		<h1><%= title %></h1>
 		<form method="POST" action="/new">
 			<label for="user">Your Name:</label>
-			<input type="text" id="user" name="user" required />
+			<input type="text" id="user" name="username" required />
 			<br />
 			<label for="text">Message:</label>
 			<input type="text" id="text" name="text" required />
@@ -18,7 +18,7 @@
 			<button class="form-btn" type="submit">Add</button>
 		</form>
 	</body>
-	<script>
+	<!-- <script>
 		const form = document.getElementById("message-form");
 		form.addEventListener("submit", function (e) {
 			const user = form.elements.user.value;
@@ -29,5 +29,5 @@
 			messages.push({ user, text, added: new Date() });
 			localStorage.setItem("messages", JSON.stringify(messages));
 		});
-	</script>
+	</script> -->
 </html>

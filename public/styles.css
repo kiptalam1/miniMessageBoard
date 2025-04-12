@@ -41,15 +41,15 @@ ul {
 	font-size: 20px;
 }
 li {
-	list-style: circle;
+	list-style: none;
 	margin-bottom: 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
 }
-hr{
-    visibility: hidden;
+hr {
+	visibility: hidden;
 }
 button {
 	padding: 5px;
@@ -104,13 +104,11 @@ input {
 		margin-bottom: 10px;
 		gap: 10px;
 		font-size: 20px;
-
 	}
-    hr{
-    visibility: visible;
-    border: 1px solid hsla(0, 0%, 0%, 0.05);
-    
-}
+	hr {
+		visibility: visible;
+		border: 1px solid hsla(0, 0%, 0%, 0.05);
+	}
 	form {
 		padding: 10px 20px;
 	}
@@ -135,13 +133,11 @@ input {
 		margin-bottom: 10px;
 		gap: 10px;
 		font-size: 16px;
-
 	}
-    hr{
-    visibility: visible;
-    border: 1px solid hsla(0, 0%, 0%, 0.05);
-    
-}
+	hr {
+		visibility: visible;
+		border: 1px solid hsla(0, 0%, 0%, 0.05);
+	}
 	form {
 		padding: 10px 20px;
 	}

@@ -13,31 +13,13 @@
 		<ul id="message-list">
 			<% messages.forEach((message, index) => { %>
 			<li>
-				<strong><%= message.user %>:</strong>
+				<strong><%= message.username %>:</strong>
 				<%= message.text %>
 				<small>(<%= message.added.toLocaleString() %>)</small>
 				<a href="/<%= index %>"><button>Open</button></a>
 			</li>
-			<hr>
+			<hr />
 			<% }); %>
 		</ul>
 	</body>
-	<script>
-		const localMessages = JSON.parse(localStorage.getItem("messages"));
-		if (localMessages) {
-			const ul = document.getElementById("message-list");
-			ul.innerHTML = ""; // Clear server-rendered messages
-			localMessages.forEach((msg, index) => {
-				const li = document.createElement("li");
-				li.innerHTML = `
-        <strong>${msg.user}</strong>: ${msg.text}<br>
-        <small>${new Date(msg.added).toLocaleString()}</small>
-        <form method="GET" action="/messages/${index}">
-        <button type="submit">Open</button>
-        </form>
-    `;
-				ul.appendChild(li);
-			});
-		}
-	</script>
 </html>

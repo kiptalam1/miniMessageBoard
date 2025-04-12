@@ -1,28 +1,39 @@
-const messages = require("../models/messageModel");
-exports.index = (req, res) => {
-	res.render("index", { title: "Mini Message Board", messages: messages });
-};
+const db = require("../models/queries");
 
-exports.newMessageForm = (req, res) => {
+async function getMessages(req, res) {
+	const messages = await db.getAllMessages();
+	console.log("Messages: ", messages);
+	res.render("index", { title: "Mini Message Board", messages });
+}
+
+async function newMessageForm(req, res) {
 	res.render("form", { title: "Add new message" });
-};
+}
 
-exports.handleNewMessage = (req, res) => {
-	const { user, text } = req.body;
-
-	messages.push({
-		text: text,
-		user: user,
-		added: new Date(),
-	});
+async function createNewMessagePost(req, res) {
+	const { username, text } = req.body;
+	await db.insertNewMessage(username, text);
 	res.redirect("/");
-};
+}
 
-exports.viewIndividualMessage = (req,res) => {
+async function viewIndividualMessage(req, res) {
 	const { id } = req.params;
-	const message = messages[parseInt(id)]
-	if (!message) {
-		return res.status(404).send("Message not found");
+	try {
+		const message = await db.getMessageById(id);
+		if (!message) {
+			return res.status(404).send("Message not found");
+		}
+
+		res.render("user", { message });
+	} catch (err) {
+		console.error(err);
+		res.status(500).send("Server error");
 	}
-	res.render('user', { message })
+}
+
+module.exports = {
+	getMessages,
+	newMessageForm,
+	createNewMessagePost,
+	viewIndividualMessage,
 };
